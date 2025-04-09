@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpc_service";
+
+package health;
+
+// The Check service definition.
+service Health {
+  // Checks the service status
+  rpc Check (CheckRequest) returns (CheckReply);
+}
+
+// The request message containing the check details.
+message CheckRequest {
+}
+
+// The response message containing the check result.
+message CheckReply {
+  bool is_success = 1;
+  string message = 2;
+  string code = 3;
+  string transaction_id = 4;
+  string result = 5;
+}
